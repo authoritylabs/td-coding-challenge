@@ -1,3 +1,8 @@
+### Prerequisites
+
+Node v14+
+NPM v6+
+
 ### Install Dependencies
 
 Run `npm install` to install project dependencies
