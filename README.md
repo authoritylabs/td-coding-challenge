@@ -1,7 +1,7 @@
 ### Prerequisites
 
-Node v14+
-NPM v6+
+- Node v14+
+- NPM v6+
 
 ### Install Dependencies
 
