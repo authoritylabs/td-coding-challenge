@@ -9,8 +9,8 @@ import { apiUsageDb } from './_db.js';
 // `createdAt` property is between the `startDate` and `endDate`
 // inclusively.
 function getApiUsages(userId, startDate, endDate) {
-	const isAfterStart = (createdAt) => createdAt >= startDate;
-	const isBeforeEnd = (createdAt) => createdAt <= endDate;
+	const isAfterStart = (date) => date >= startDate;
+	const isBeforeEnd = (date) => date <= endDate;
 
 	return apiUsageDb.filter(({ userId: id, createdAt }) => {
 		return id === userId && isAfterStart(createdAt) && isBeforeEnd(createdAt);
