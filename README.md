@@ -9,7 +9,7 @@ Run `npm install` to install project dependencies
 
 ### Run Application
 
-This project prints a list of API usage for the number of GET and POST requests made by user with id 77 for the last 7 days.
+This project prints a list of API usage for the number of GET and POST requests made by user with id 77 for the last 7 days as of July 1st, 2021.
 
 Run `npm start` to run the program.
 
