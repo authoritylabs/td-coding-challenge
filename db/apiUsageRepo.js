@@ -1,4 +1,4 @@
-import { apiUsageDb } from './_db.js';
+import { apiUsagesTable } from './mockDbTables/apiUsagesTable.js';
 
 // Required parameters:
 // `userId` number
@@ -12,7 +12,7 @@ async function getApiUsages(userId, startDate, endDate) {
 	const isAfterStart = (date) => date >= startDate;
 	const isBeforeEnd = (date) => date <= endDate;
 
-	return apiUsageDb.filter(({ userId: id, createdAt }) => {
+	return apiUsagesTable.filter(({ userId: id, createdAt }) => {
 		return id === userId && isAfterStart(createdAt) && isBeforeEnd(createdAt);
 	})
 }

@@ -5,7 +5,7 @@ function createRecord([userId, gets, posts, dateString]) {
 	return { userId, gets, posts, createdAt: new Date(dateString) };
 }
 
-const apiUsageDb = [
+const apiUsagesTable = [
 	[77, 200, 3000, '2021-06-24'],
 	[42, 260, 80, '2021-06-24'],
 	[77, 1300, 0, '2021-06-25'],
@@ -30,4 +30,4 @@ const apiUsageDb = [
 	[37, 600, 190, '2021-07-02'],
 ].map(createRecord);
 
-export { apiUsageDb };
+export { apiUsagesTable };
