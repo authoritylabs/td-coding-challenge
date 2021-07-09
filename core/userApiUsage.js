@@ -19,10 +19,10 @@ function isMatchingUsageDate({ createdAt }, date) {
 }
 
 export default function createGetUserApiUsageLast7Days(apiUsageRepo) {
-	return ({ id: userId }, referenceDate) => {
+	return async ({ id: userId }, referenceDate) => {
 		const { startDate, endDate } = getUsageLookupDates(referenceDate);
 
-		const usages = apiUsageRepo.getApiUsages(userId, startDate, endDate);
+		const usages = await apiUsageRepo.getApiUsages(userId, startDate, endDate);
 
 		return createRange(7)
 			.map((daysAgo) => {

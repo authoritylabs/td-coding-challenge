@@ -8,7 +8,7 @@ import { apiUsageDb } from './_db.js';
 // Returns array of all ApiUsage records for the associated User where
 // `createdAt` property is between the `startDate` and `endDate`
 // inclusively.
-function getApiUsages(userId, startDate, endDate) {
+async function getApiUsages(userId, startDate, endDate) {
 	const isAfterStart = (date) => date >= startDate;
 	const isBeforeEnd = (date) => date <= endDate;
 

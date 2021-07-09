@@ -1,7 +1,7 @@
 import createGetUserApiUsage from '../core/userApiUsage.js'
 
 const apiUsageMockRepo = {
-	getApiUsages(id, start, end) {
+	getApiUsages: async (id, start, end) => {
 		return [
 			{ userId: 42, gets: 250, posts: 250, createdAt: new Date('2020-01-26') },
 			{ userId: 42, gets: 500, posts: 500000, createdAt: new Date('2020-01-28') },
@@ -17,7 +17,7 @@ const apiUsageMockRepo = {
 
 const getUserApiUsage = createGetUserApiUsage(apiUsageMockRepo)
 
-test('should return 7 items with 0 gets and 0 posts for previous 7 days if no ApiUsage records are found for user', () => {
+test('should return 7 items with 0 gets and 0 posts for previous 7 days if no ApiUsage records are found for user', async () => {
 	const user = { id: 10 };
 	const dateReference = new Date('2020-01-31');
 
@@ -31,11 +31,11 @@ test('should return 7 items with 0 gets and 0 posts for previous 7 days if no Ap
 		{ daysAgo: 6, gets: 0, posts: 0 },
 	];
 
-	const actual = getUserApiUsage(user, dateReference);
+	const actual = await getUserApiUsage(user, dateReference);
 	expect(actual).toEqual(expected);
 })
 
-test('should return 7 items with the expected number of gets and posts for the days with matching records', () => {
+test('should return 7 items with the expected number of gets and posts for the days with matching records', async () => {
 	const user = { id: 42 };
 	const dateReference = new Date('2020-02-02');
 
@@ -49,6 +49,6 @@ test('should return 7 items with the expected number of gets and posts for the d
 		{ daysAgo: 6, gets: 0, posts: 0 },
 	];
 
-	const actual = getUserApiUsage(user, dateReference);
+	const actual = await getUserApiUsage(user, dateReference);
 	expect(actual).toEqual(expected);
 })
