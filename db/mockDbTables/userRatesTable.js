@@ -19,6 +19,6 @@ const userRatesTable = [
 	createRecord(103, 15, 50),
 	createRecord(123, 0, 1000),
 	createRecord(309, 60, 240),
-].map(createRecord);
+];
 
 export { userRatesTable };
